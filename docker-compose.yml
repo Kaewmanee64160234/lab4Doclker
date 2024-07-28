@@ -1,9 +1,9 @@
-
+version: '3'
 services:
   app:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.dev
     ports:
       - "3000:3000"
     volumes:
@@ -35,9 +35,8 @@ services:
       ME_CONFIG_MONGODB_URL: mongodb://root:rootpassword@mongodb:27017/mydb?authSource=admin
       ME_CONFIG_BASICAUTH_USERNAME: admin
       ME_CONFIG_BASICAUTH_PASSWORD: password
-  depends_on:
-    - mongodb
+    depends_on:
+      - mongodb
 
 volumes:
   mongodb_data:
-  
